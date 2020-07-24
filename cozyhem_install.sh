@@ -14,9 +14,9 @@ dockercompose_file="$docker_dir/docker-compose.yaml"
 cozyhem_dir="$root_dir/config"
 cozyhem_config="$cozyhem_dir/home.yaml"
 
-mkdir -p $config_directory
-echo "USERNAME=$domain" > $credentials_file 
-echo "PUBLIC_KEY=$publicKey" >> $credentials_file 
+mkdir -p $smartvpn_dir
+echo "USERNAME=$domain" > $smartvpn_cred_file 
+echo "PUBLIC_KEY=$publicKey" >> $smartvpn_cred_file 
 
 touch "$docker_profile"
 
