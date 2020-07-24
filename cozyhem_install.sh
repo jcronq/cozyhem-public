@@ -18,6 +18,7 @@ mkdir -p $smartvpn_dir
 echo "USERNAME=$domain" > $smartvpn_cred_file 
 echo "PUBLIC_KEY=$publicKey" >> $smartvpn_cred_file 
 
+mkdir -p $docker_dir
 touch "$docker_profile"
 
 cat > $dockercompose_file <<EOF
