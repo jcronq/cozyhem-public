@@ -1,9 +1,10 @@
 #!/bin/bash
+set -o xtrace
 
 domain=$1
 publicKey=$2
 
-root_dir="~/.cozyhem"
+root_dir="$HOME/.cozyhem"
 smartvpn_dir="$root_dir/smartvpn-client"
 smartvpn_cred_file="$smartvpn_dir/credentials"
 
@@ -29,7 +30,7 @@ services:
     restart: unless-stopped
     image: cozyhem/cozyhem-client
     volumes: 
-      - ~/.cozyhem/config:/config
+      - $HOME/.cozyhem/config:/config
     environment:
       - TZ=America/Denver
     network_mode: host
@@ -40,7 +41,7 @@ services:
     restart: unless-stopped
     image: cozyhem/smartvpn-client
     volumes:
-      - ~/.cozyhem/smartvpn-client:/etc/wireguard
+      - $HOME/.cozyhem/smartvpn-client:/etc/wireguard
     network_mode: host
     environment:
       - TZ=America/Denver
@@ -51,6 +52,3 @@ services:
 
 EOF
 
-cd $docker_dir
-
-docker-compose up -d
